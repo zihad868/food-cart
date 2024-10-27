@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-import logo from '../../assets/chilli.png';
+import logo from "../../assets/chilli.png";
 
 const Navbar = () => {
   return (
     <div className="flex justify-evenly lg:mr-40 lg:ml-10 mt-5">
       <div>
-        <ul className="space-x-3 uppercase flex">
+        <ul className="space-x-3 uppercase flex mt-2">
           <div>
-            <a href='/'>
+            <a href="/">
               <img className="w-5 h-5" src={logo} alt="" />
             </a>
           </div>
@@ -22,8 +22,12 @@ const Navbar = () => {
       </div>
 
       <div className="flex space-x-3">
-        <FaCartShopping />
-        <button className="uppercase">order now</button>
+        <div className="mt-2 text-3xl mr-3">
+          <FaCartShopping />
+        </div>
+        <button className="uppercase font-bold bg-red-500 px-2 py-1 rounded-md text-white">
+          order now
+        </button>
       </div>
     </div>
   );
