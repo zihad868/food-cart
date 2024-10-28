@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import logo from "../../assets/chilli.png";
+import { CartContext } from "../../Provider/CartContext";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const { cartItems } = useContext(CartContext); 
+
+  console.log(cartItems)
 
   const toggleDrawer = () => {
     setIsDrawerOpen(true);
@@ -61,6 +66,8 @@ const Navbar = () => {
               Close
             </button>
           </div>
+
+          {/* Cart Items */}
         </div>
       )}
     </div>
