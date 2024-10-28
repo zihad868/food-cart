@@ -1,8 +1,9 @@
+// FoodDetails.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../../Provider/CartContext';
 
 const FoodDetails = ({ food }) => {
-    const { cartItems, addItem } = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
 
     return (
         <div className='ml-10 space-y-2'>

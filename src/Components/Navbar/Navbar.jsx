@@ -1,23 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+// Navbar.jsx
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import logo from "../../assets/chilli.png";
 import { CartContext } from "../../Provider/CartContext";
-import Cart from "../../Pages/FoodCart/OrderFood";
 import OrderFood from "../../Pages/FoodCart/OrderFood";
 
 const Navbar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const { cartItems } = useContext(CartContext);
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(true);
-  };
-
-  const toggleDrawerClose = () => {
-    setIsDrawerOpen(false);
-  };
+  const { cartItems, isDrawerOpen, toggleDrawer, closeDrawer } = useContext(CartContext);
 
   return (
     <div>
@@ -62,14 +52,13 @@ const Navbar = () => {
               </p>
             </div>
             <button
-              onClick={toggleDrawerClose}
+              onClick={closeDrawer}
               className="text-red-500 border border-red-600 p-2 rounded-md mb-5"
             >
               Close
             </button>
           </div>
 
-          {/* Order Items */}
           <div className='w-[80%] mx-auto mt-5'>
             {
               cartItems.map(order => <OrderFood key={order.id} order = {order} />)
