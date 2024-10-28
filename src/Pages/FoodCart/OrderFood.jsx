@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../Provider/CartContext";
 import { MdDelete } from "react-icons/md";
 
 const OrderFood = ({ order }) => {
   const { removeCartItem } = useContext(CartContext);
+
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    setQuantity(quantity+1)
+  }
+
+  const decreaseQuantity = () => {
+    if(quantity > 1){
+      setQuantity(quantity-1)
+    }
+  }
 
   return (
     <div className="mb-8 border-2 rounded-md p-3 relative">
@@ -13,9 +25,9 @@ const OrderFood = ({ order }) => {
           <p className="text-white font-bold">{order?.name}</p>
           <p className="text-white">{order?.price}$ /each</p>
           <div className="flex">
-            <button className="bg-gray-200 px-2">-</button>
-            <p className="w-full flex justify-center bg-white">1</p>
-            <button className="bg-gray-200 px-2">+</button>
+            <button className="bg-gray-200 px-2" onClick={decreaseQuantity}>-</button>
+            <p className="w-full flex justify-center bg-white">{quantity}</p>
+            <button className="bg-gray-200 px-2" onClick={increaseQuantity}>+</button>
           </div>
           <div>
             <p className="text-white text-xl font-bold flex justify-end">
