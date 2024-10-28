@@ -6,14 +6,17 @@ const OrderFood = ({ order }) => {
   const { removeCartItem } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(order?.price);
 
   const increaseQuantity = () => {
     setQuantity(quantity+1)
+    setTotalPrice((quantity+1) * order.price)
   }
 
   const decreaseQuantity = () => {
     if(quantity > 1){
       setQuantity(quantity-1)
+      setTotalPrice((quantity-1) * order.price)
     }
   }
 
@@ -31,7 +34,7 @@ const OrderFood = ({ order }) => {
           </div>
           <div>
             <p className="text-white text-xl font-bold flex justify-end">
-              {order?.price}
+              {totalPrice}
             </p>
           </div>
         </div>
