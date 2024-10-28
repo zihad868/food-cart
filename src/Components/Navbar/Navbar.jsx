@@ -8,16 +8,7 @@ import Cart from "../../Pages/FoodCart/Cart";
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const [foods, setFoods] = useState();
-
   const { cartItems } = useContext(CartContext);
-
-  useEffect(() => {
-    fetch("./cart.json")
-      .then((res) => res.json())
-      .then((data) => setFoods(data));
-  }, []);
-
 
   const toggleDrawer = () => {
     setIsDrawerOpen(true);
@@ -75,11 +66,6 @@ const Navbar = () => {
             >
               Close
             </button>
-          </div>
-
-          {/* Cart Items */}
-          <div>
-            {foods.map(food => <Cart key={food.id} food={food}/>)}
           </div>
         </div>
       )}
