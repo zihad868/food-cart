@@ -14,7 +14,7 @@ const OrderFood = ({ order }) => {
           <p className="text-white">{order?.price}$ /each</p>
           <div className="flex">
             <button className="bg-gray-200 px-2">-</button>
-            <p className="w-full flex justify-center bg-white">0</p>
+            <p className="w-full flex justify-center bg-white">1</p>
             <button className="bg-gray-200 px-2">+</button>
           </div>
           <div>
