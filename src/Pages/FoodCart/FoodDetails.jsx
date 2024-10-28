@@ -2,10 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../Provider/CartContext';
 
 const FoodDetails = ({ food }) => {
-    const { cartItems, addItem } = useContext(CartContext);  // Use addItem from context
-
-    console.log(cartItems); // Logging cart items for debugging
-    console.log(food);      // Logging food item for debugging
+    const { cartItems, addItem } = useContext(CartContext);
 
     return (
         <div className='ml-10 space-y-2'>
@@ -15,7 +12,7 @@ const FoodDetails = ({ food }) => {
             <p className='mt-5'>{food?.description}</p>
             <button
                 className='bg-red-600 text-white font-bold w-full px-2 py-1 rounded-md'
-                onClick={() => addItem(food)}  // Adding food item to cart
+                onClick={() => addItem(food)} 
             >
                 Add To Order
             </button>

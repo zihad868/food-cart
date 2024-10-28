@@ -14,7 +14,7 @@ const FoodCart = () => {
   return (
     <div
       className="grid md:grid-cols-3 mt-20
-     w-[70%] ml-32 gap-5"
+     w-[60%] ml-32 gap-5"
     >
       {foods.map((food) => (
         <FoodDetails key={food.id} food={food} />

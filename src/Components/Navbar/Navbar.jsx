@@ -3,7 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import logo from "../../assets/chilli.png";
 import { CartContext } from "../../Provider/CartContext";
-import Cart from "../../Pages/FoodCart/Cart";
+import Cart from "../../Pages/FoodCart/OrderFood";
+import OrderFood from "../../Pages/FoodCart/OrderFood";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -52,7 +53,7 @@ const Navbar = () => {
 
       {/* Drawer */}
       {isDrawerOpen && (
-        <div className="fixed top-0 right-0 h-full w-64 bg-red-500 shadow-lg z-50 transition-transform transform translate-x-0 mt-4 mr-3">
+        <div className="fixed top-0 right-0 h-full w-80 bg-red-500 shadow-lg z-50 transition-transform transform translate-x-0 mt-4 mr-3">
           <div className="bg-white w-full flex justify-between">
             <div className="mt-4 text-red-500 text-xl flex">
               <FaCartShopping />
@@ -66,6 +67,13 @@ const Navbar = () => {
             >
               Close
             </button>
+          </div>
+
+          {/* Order Items */}
+          <div className='w-[80%] mx-auto mt-5'>
+            {
+              cartItems.map(order => <OrderFood key={order.id} order = {order} />)
+            }
           </div>
         </div>
       )}
