@@ -1,0 +1,23 @@
+[
+{
+    "id": 1,
+    "name": "Spicy Chicken Burger",
+    "price": 7.99,
+    "description": "A delicious spicy chicken burger with lettuce and mayo.",
+    "image": "https://i.ibb.co.com/XbxtpbK/burger.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Veggie Pizza",
+    "price": 12.99,
+    "description": "Loaded with fresh veggies and topped with mozzarella cheese.",
+    "image": "https://i.ibb.co.com/BfVPhYY/veggie-deluxe-pizza-5.jpg"
+  },
+  {
+    "id": 3,
+    "name": "French Fries",
+    "price": 3.49,
+    "description": "Crispy golden fries, perfect for snacking.",
+    "image": "https://i.ibb.co.com/BcyGhg9/air-fryer-french-fries2.jpg"
+  }
+]

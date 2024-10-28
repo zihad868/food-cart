@@ -1,15 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import logo from "../../assets/chilli.png";
 import { CartContext } from "../../Provider/CartContext";
+import Cart from "../../Pages/FoodCart/Cart";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const { cartItems } = useContext(CartContext); 
+  const [foods, setFoods] = useState();
 
-  console.log(cartItems)
+  const { cartItems } = useContext(CartContext);
+
+  useEffect(() => {
+    fetch("./cart.json")
+      .then((res) => res.json())
+      .then((data) => setFoods(data));
+  }, []);
+
 
   const toggleDrawer = () => {
     setIsDrawerOpen(true);
@@ -42,7 +50,7 @@ const Navbar = () => {
           >
             <FaCartShopping />
             <p className="bg-red-500 text-white font-bold rounded-lg absolute -top-7 ml-2 px-1">
-              0
+              {cartItems.length}
             </p>
           </div>
           <button className="uppercase font-bold bg-red-500 px-2 py-1 rounded-md text-white">
@@ -57,7 +65,9 @@ const Navbar = () => {
           <div className="bg-white w-full flex justify-between">
             <div className="mt-4 text-red-500 text-xl flex">
               <FaCartShopping />
-              <p className="ml-3"><span>0</span> item</p>
+              <p className="ml-3">
+                <span>{cartItems.length}</span> item
+              </p>
             </div>
             <button
               onClick={toggleDrawerClose}
@@ -68,6 +78,9 @@ const Navbar = () => {
           </div>
 
           {/* Cart Items */}
+          <div>
+            {foods.map(food => <Cart key={food.id} food={food}/>)}
+          </div>
         </div>
       )}
     </div>
